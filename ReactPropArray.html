@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const HelloWorld = (props) => {
+            console.log(props);
+            return <div>
+                        <div>My Name is {props.name}</div>
+                        <div>Age is {props.age}</div>
+                        <ul>
+                            {
+                                props.subject.map( (value,index) =>
+                                {
+                                    return <li key={index}> {value} </li>
+                                })
+                            }
+                            // {
+                            //     props.subject.map(function(value,index) 
+                            //     {
+                            //         return <li key={index}> {value} </li>
+                            //     })
+                            // }
+                        </ul>
+                   </div>
+        }
+
+        const Main = () => {
+            return <HelloWorld name="Muhammad Zubaid" age={26} subject={["Maths","Computer"]} />
+        }
+
+        let ele = document.getElementById("root");
+        ReactDOM.render(<Main />,ele)
+
+    </script>
+</body>
+
+</html>
